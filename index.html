@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juntes d’avaluació 1r trimestre · Institut de l’Ebre</title>
+<meta name="description" content="Consulta el dia, l’hora i l’aula de les juntes d’avaluació de la 1a avaluació de l’Institut de l’Ebre.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B4F8A'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>IE</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== COLORS INSTITUCIONALS: canvia'ls aquí ===== */
+:root{
+  --brand:#0B4F8A; --brand-deep:#05284A; --accent:#00A7B5; --amber:#F5A300;
+  --bg:#EEF3F8; --surface:#FFFFFF; --text:#0F2236; --muted:#566B80; --line:#D5E0EB; --soft:#E4EEF7;
+  --plate:#0B3A66; --plate-text:#fff; --amber-bg:#FFF4D9; --amber-ink:#6B4500; --shadow:0 1px 2px rgba(5,40,74,.08),0 6px 18px rgba(5,40,74,.07);
+  --display:"Bricolage Grotesque","Figtree",system-ui,sans-serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --brand:#5BB0F0; --brand-deep:#031526; --accent:#35D3DF; --amber:#FFB938;
+  --bg:#0A1521; --surface:#122336; --text:#E8F0F7; --muted:#98ADC0; --line:#23405B; --soft:#193350;
+  --plate:#07192E; --plate-text:#fff; --amber-bg:#3A2B08; --amber-ink:#FFD98A; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--brand:#5BB0F0;--brand-deep:#031526;--accent:#35D3DF;--amber:#FFB938;--bg:#0A1521;--surface:#122336;--text:#E8F0F7;--muted:#98ADC0;--line:#23405B;--soft:#193350;--plate:#07192E;--plate-text:#fff;--amber-bg:#3A2B08;--amber-ink:#FFD98A;--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.3)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 var(--body);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+
+/* ---------- capçalera ---------- */
+header{background:var(--brand-deep);color:#fff;position:relative;overflow:hidden;padding:22px 0 120px}
+header::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(900px 340px at 85% -10%,rgba(0,167,181,.45),transparent 70%),
+  radial-gradient(700px 300px at 0% 110%,rgba(11,79,138,.9),transparent 70%)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.14) 0 2px,transparent 2px 40px);
+  mask:linear-gradient(to top,#000,transparent);-webkit-mask:linear-gradient(to top,#000,transparent)}
+header .wrap{position:relative;z-index:1}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;font-size:.95rem}
+.brand{display:flex;align-items:center;gap:10px}
+.mark{width:34px;height:34px;border-radius:9px;background:#fff;color:var(--brand-deep);display:grid;place-items:center;font:800 .95rem var(--display)}
+.bar button{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:99px;padding:7px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+h1{font:800 clamp(2.2rem,7vw,4.4rem)/.95 var(--display);letter-spacing:-.025em;margin:44px 0 14px}
+h1 span{display:block;font-weight:500;color:#9FD8F5}
+.lead{max-width:56ch;margin:0;color:#CFE3F3;font-size:1.05rem}
+
+/* ---------- cercador ---------- */
+.finder{margin-top:-84px;position:relative;z-index:2;background:var(--surface);border-radius:22px;box-shadow:var(--shadow);border:1px solid var(--line);padding:20px}
+.finder label.big{display:block;font:700 1.15rem var(--display);margin-bottom:8px}
+.search{position:relative}
+.search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:24px;height:24px;color:var(--brand)}
+#q{width:100%;font:500 1.2rem var(--body);padding:18px 52px 18px 54px;border-radius:16px;border:3px solid var(--brand);background:var(--bg);color:var(--text);outline:0;transition:box-shadow .15s}
+#q:focus{box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 35%,transparent);border-color:var(--accent)}
+#q::-webkit-search-cancel-button,#q::-webkit-search-decoration{-webkit-appearance:none;display:none}
+#q::placeholder{color:var(--muted);opacity:.8}
+.search .x{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:var(--soft);color:var(--text);width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:none}
+.hint{margin:8px 2px 0;color:var(--muted);font-size:.9rem}
+.sug{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sug button{border:1px solid var(--line);background:var(--surface);color:var(--text);padding:6px 12px;border-radius:99px;font:600 .85rem var(--body);cursor:pointer}
+.sug button:hover{border-color:var(--brand);color:var(--brand)}
+.filters{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:12px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);align-items:end}
+.fld label{display:block;font:600 .85rem var(--body);color:var(--muted);margin-bottom:4px}
+select{width:100%;font:500 .98rem var(--body);padding:11px 10px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+select:focus{border-color:var(--accent);outline:0}
+select.on{border-color:var(--brand);background:var(--soft)}
+.reset{border:0;background:none;color:var(--brand);font:700 .95rem var(--body);cursor:pointer;padding:12px 6px;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- dies ---------- */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 0}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.tile:hover{border-color:var(--brand)}
+.tile:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.tile .n{font:800 2.5rem/1 var(--display);color:var(--brand);min-width:2.1ch;text-align:center}
+.tile .t{display:flex;flex-direction:column;line-height:1.2;font-size:.9rem;color:var(--muted)}
+.tile .t b{color:var(--text);font-size:1rem}
+.tile .c{margin-left:auto;font:700 .85rem var(--body);background:var(--soft);color:var(--text);border-radius:99px;padding:3px 10px}
+.tile[aria-pressed="true"]{background:var(--brand);border-color:var(--brand)}
+.tile[aria-pressed="true"] .n,.tile[aria-pressed="true"] .t,.tile[aria-pressed="true"] .t b{color:#fff}
+.tile[aria-pressed="true"] .c{background:rgba(255,255,255,.2);color:#fff}
+.tile.comp{border-color:var(--amber)}
+.tile.comp .n{color:var(--amber-ink)}
+.tile.comp[aria-pressed="true"]{background:var(--amber);border-color:var(--amber)}
+.tile.comp[aria-pressed="true"] .n,.tile.comp[aria-pressed="true"] .t,.tile.comp[aria-pressed="true"] .t b{color:#2B1B00}
+.tile.comp[aria-pressed="true"] .c{background:rgba(0,0,0,.12);color:#2B1B00}
+.tile.all .n{font-size:1.5rem}
+.count{margin:22px 2px 0;color:var(--muted);font-weight:600}
+.count b{color:var(--text)}
+
+.day{margin-top:14px}
+.dayh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:22px 0 6px;border-bottom:3px solid var(--brand)}
+.dayh h2{margin:0;font:800 clamp(1.5rem,4vw,2.1rem)/1.1 var(--display);letter-spacing:-.015em}
+.dayh .num{color:var(--muted);font-weight:600}
+.dayh.comp{border-color:var(--amber)}
+.pill{background:var(--amber);color:#2B1B00;font:700 .85rem var(--body);padding:4px 12px;border-radius:99px}
+
+.slot{display:grid;grid-template-columns:132px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.time{position:sticky;top:12px;align-self:start;font-variant-numeric:tabular-nums}
+.time .a{font:800 2.5rem/1 var(--display);letter-spacing:-.03em;color:var(--brand)}
+.time .b{display:flex;align-items:center;gap:8px;margin-top:6px;color:var(--muted);font-weight:600;font-size:.95rem}
+.time .b::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{--fc:var(--brand);position:relative;display:grid;grid-template-columns:1fr auto;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 14px 14px 18px;box-shadow:var(--shadow);overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--fc)}
+.g{font:800 1.35rem/1.15 var(--display);letter-spacing:-.01em;margin:0}
+.cy{margin:4px 0 10px;font-size:.92rem;color:var(--text)}
+.fam{display:inline-flex;align-items:center;gap:6px;font:600 .8rem var(--body);color:var(--muted)}
+.fam::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--fc)}
+.plate{align-self:start;min-width:78px;text-align:center;background:var(--plate);color:var(--plate-text);border-radius:12px;padding:8px 12px 9px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.plate span{display:block;font:600 .7rem var(--body);opacity:.8}
+.plate b{display:block;font:800 1.6rem/1.1 var(--display);letter-spacing:-.01em;white-space:nowrap}
+.card.k{background:var(--amber-bg);border:2px dashed var(--amber)}
+.card.k::before{background:var(--amber)}
+.tag{display:inline-block;margin-bottom:8px;background:var(--amber);color:#2B1B00;font:800 .78rem var(--body);padding:3px 10px;border-radius:99px}
+mark{background:color-mix(in srgb,var(--amber) 60%,transparent);color:inherit;border-radius:4px;padding:0 2px}
+.empty{margin:30px 0;text-align:center;padding:40px 16px;background:var(--surface);border:2px dashed var(--line);border-radius:18px;color:var(--muted)}
+.empty b{display:block;color:var(--text);font:800 1.3rem var(--display);margin-bottom:6px}
+.empty button{margin-top:14px;border:0;background:var(--brand);color:#fff;border-radius:99px;padding:10px 20px;font:700 1rem var(--body);cursor:pointer}
+.note{margin:26px 0 0;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--amber);border-radius:14px;padding:14px 18px;color:var(--muted);font-size:.93rem}
+.note p{margin:0 0 6px}.note p:last-child{margin:0}
+footer{padding:26px 16px 40px;text-align:center;color:var(--muted);font-size:.85rem}
+footer a{color:inherit}
+
+@media(max-width:860px){.filters{grid-template-columns:1fr 1fr}.reset{grid-column:1/-1;justify-self:start}.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){
+  .slot{grid-template-columns:1fr;gap:10px}.time{position:static;display:flex;align-items:baseline;gap:10px}.time .a{font-size:2rem}.time .b{margin:0}.time .b::before{width:14px}
+  .cards{grid-template-columns:1fr}.finder{padding:14px}.tile .n{font-size:2rem}}
+@media(max-width:420px){.filters{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.tile{padding:10px}.tile .c{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media print{header{padding:10px 0}header::before,header::after,.finder,.tiles,.bar button,footer{display:none}.time{position:static}.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="bar"><div class="brand"><div class="mark">IE</div>Institut de l’Ebre</div><button id="theme" type="button" aria-label="Canvia entre mode clar i fosc">Mode clar / fosc</button></div>
+  <h1>Juntes d’avaluació<span>1r trimestre · 1a avaluació</span></h1>
+  <p class="lead">Troba quan i on és la teva junta. Escriu un grup, un cicle, una aula o una hora.</p>
+</div></header>
+
+<main class="wrap">
+  <section class="finder" aria-label="Cercador de juntes">
+    <label class="big" for="q">Cerca la teva junta</label>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Per exemple: SMX, Sanitat, 31, 12:30, 16 de desembre…" autocomplete="off" enterkeyhint="search">
+      <button class="x" id="clr" type="button" aria-label="Esborra la cerca">×</button>
+    </div>
+    <p class="hint">Cerca per data, franja horària, família professional, cicle formatiu, grup o aula. Pots combinar paraules.</p>
+    <div class="sug" id="sug" aria-label="Cerques ràpides"></div>
+    <div class="filters">
+      <div class="fld"><label for="fam">Família professional</label><select id="fam"></select></div>
+      <div class="fld"><label for="hour">Franja horària</label><select id="hour"></select></div>
+      <div class="fld"><label for="room">Aula</label><select id="room"></select></div>
+      <div class="fld"><label for="typ">Tipus de junta</label><select id="typ"><option value="">Totes</option><option value="0">Avaluació</option><option value="1">Compleció</option></select></div>
+      <button class="reset" id="reset" type="button">Neteja-ho tot</button>
+    </div>
+  </section>
+
+  <div class="tiles" id="tiles" role="group" aria-label="Filtra per dia"></div>
+  <div class="count" id="count" aria-live="polite"></div>
+  <div id="out"></div>
+
+  <div class="note">
+    <p><b>Important:</b> cal respectar els dies i hores de les juntes, ja que el calendari s’ha establert de forma que al professorat transversal (FOL, Anglès, professorat d’altres departaments) li coincideixi el menor nombre de juntes. Qualsevol canvi cal sol·licitar-lo a cap d’estudis i s’estudiarà si és viable.</p>
+    <p>El/la tutor/a ha de convocar la reunió a través de la plataforma iEduca d’acord amb la data i l’hora d’aquesta planificació. Posteriorment, cal confeccionar l’acta de la junta de 1a avaluació.</p>
+  </div>
+</main>
+<footer>Cap d’estudis FP · Institut de l’Ebre · Av. Colom 34-42, Tortosa · <a href="https://insebre.cat">insebre.cat</a></footer>
+
+<script>
+const DATA=[{"d": "2026-12-02", "s": "9:00", "e": "10:00", "f": "Sanitat", "c": "CFGS Laboratori clínic i biomèdic", "g": "2n LCB", "a": "16", "k": 0}, {"d": "2026-12-02", "s": "11:30", "e": "12:30", "f": "Administració i gestió", "c": "CFGS Assistència a la direcció", "g": "2n ADI", "a": "B1", "k": 0}, {"d": "2026-12-02", "s": "11:30", "e": "12:30", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Integració social", "g": "2n INS A", "a": "B2", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Administració i gestió", "c": "CFGS Administració i finances / Assistència a la direcció", "g": "1r AF-ADI B", "a": "31", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Comerç i màrqueting", "c": "CFGS Comerç internacional", "g": "1r COMINT", "a": "36", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Electricitat i electrònica", "c": "CFGS Eficiència energètica i energia solar tèrmica", "g": "2n EE", "a": "E12", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Transport i m. de vehicles", "c": "CE Aeronaus tripulades de forma remota – Drons", "g": "1r DRONS", "a": "Altell-2", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Informàtica i comunicacions", "c": "CFGM Sistemes microinformàtics i xarxes", "g": "2n SMX B", "a": "20.4", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Fabricació mecànica", "c": "CFGM Soldadura i caldereria", "g": "1r SIC", "a": "E16", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Sanitat", "c": "CFGM Emergències sanitàries", "g": "1r ES B", "a": "ES1", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Integració social", "g": "1r INS B", "a": "E3", "k": 0}, {"d": "2026-12-02", "s": "12:30", "e": "13:20", "f": "IFE", "c": "IFE Manteniment instal·lacions esportives", "g": "3r IFE", "a": "29", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Administració i gestió", "c": "CFGS Administració i finances / Assistència a la direcció", "g": "1r AF-ADI A", "a": "31", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Arts gràfiques", "c": "CFGS Disseny i edició de publicacions impreses i multimèdia", "g": "1r DEPIM", "a": "20.6", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Electricitat i electrònica", "c": "CFGM Instal·lacions electròniques i automàtiques", "g": "2n IEA", "a": "E13", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Informàtica i comunicacions", "c": "CFGS Administració de sistemes informàtics en xarxa (ciber.)", "g": "1r ASIX", "a": "20.3", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGM Cures auxiliars d’infermeria", "g": "CAI B", "a": "28", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGM Emergències sanitàries", "g": "2n ES B", "a": "ES1", "k": 0}, {"d": "2026-12-02", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGS Imatge per al diagnòstic i medicina nuclear", "g": "2n IDM B", "a": "E17", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Administració i gestió", "c": "CFGS Administració i finances", "g": "2n AF", "a": "31", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Comerç i màrqueting", "c": "CFGM Activitats comercials", "g": "2n ACO", "a": "34", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Electricitat i electrònica", "c": "CFGM Instal·lacions elèctriques i automàtiques", "g": "1r IEA", "a": "E13", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Informàtica i comunicacions", "c": "CFGM Sistemes microinformàtics i xarxes", "g": "2n SMX A", "a": "20.2", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Fabricació mecànica", "c": "CFGM Mecanització", "g": "2n MEC", "a": "E15", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Sanitat", "c": "CFGM Farmàcia i parafarmàcia", "g": "2n FAR BC", "a": "17", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Sanitat", "c": "CFGS Imatge per al diagnòstic i medicina nuclear", "g": "2n IDM A", "a": "E17", "k": 0}, {"d": "2026-12-02", "s": "15:10", "e": "16:00", "f": "Serveis socioculturals i a la comunitat", "c": "CFGM Atenció a persones en situació de dependència", "g": "1r APD", "a": "22", "k": 0}, {"d": "2026-12-02", "s": "16:00", "e": "17:00", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Integració social", "g": "1r INS A", "a": "E4", "k": 0}, {"d": "2026-12-02", "s": "17:00", "e": "18:00", "f": "Electricitat i electrònica", "c": "CFGS Eficiència energètica i energia solar tèrmica", "g": "1r EE", "a": "E13", "k": 0}, {"d": "2026-12-02", "s": "17:00", "e": "18:00", "f": "Sanitat", "c": "CFGM Cures auxiliars d’infermeria", "g": "CAI A", "a": "19", "k": 0}, {"d": "2026-12-02", "s": "17:00", "e": "18:00", "f": "Sanitat", "c": "CFGS Imatge per al diagnòstic i medicina nuclear", "g": "1r IDM", "a": "11", "k": 0}, {"d": "2026-12-09", "s": "9:00", "e": "10:00", "f": "Serveis socioculturals i a la comunitat", "c": "CFGM Atenció a persones en situació de dependència", "g": "2n APD", "a": "16", "k": 0}, {"d": "2026-12-09", "s": "10:00", "e": "11:00", "f": "Administració i gestió", "c": "CFGM Gestió administrativa (àmbit sanitari)", "g": "2n GAD-SAN", "a": "17", "k": 0}, {"d": "2026-12-09", "s": "10:00", "e": "11:00", "f": "Sanitat", "c": "CFGM Emergències sanitàries", "g": "2n ES A", "a": "14", "k": 0}, {"d": "2026-12-09", "s": "11:30", "e": "12:30", "f": "Comerç i màrqueting", "c": "CFGS Comerç internacional", "g": "2n COMINT", "a": "B1", "k": 0}, {"d": "2026-12-09", "s": "11:30", "e": "12:30", "f": "Imatge i so", "c": "CFGS Realització de projectes d’audiovisuals i espectacles", "g": "2n RPAE", "a": "Activa 1", "k": 0}, {"d": "2026-12-09", "s": "11:30", "e": "12:30", "f": "Informàtica i comunicacions", "c": "CFGS Desenvolupament d’aplicacions multiplataforma", "g": "2n DAM", "a": "E5", "k": 0}, {"d": "2026-12-09", "s": "11:30", "e": "12:30", "f": "Fabricació mecànica", "c": "CFGM Soldadura i caldereria", "g": "2n SIC", "a": "E1", "k": 0}, {"d": "2026-12-09", "s": "11:30", "e": "12:30", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Integració social", "g": "2n INS B", "a": "B2", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Administració i gestió", "c": "CFGM Gestió administrativa (àmbit sanitari)", "g": "1r GAD-SAN", "a": "32", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Arts gràfiques", "c": "CFGS Disseny i edició de publicacions impreses i multimèdia", "g": "2n DEPIM", "a": "20.6", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Comerç i màrqueting", "c": "CFGM Activitats comercials", "g": "1r ACO", "a": "34", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Transport i m. de vehicles", "c": "PFI Aux. manteniment-reparació vehicles mob.pers.", "g": "1r TM05", "a": "E7", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Electricitat i electrònica", "c": "CFGS Automatització i robòtica industrial", "g": "1r ARI", "a": "E13", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Informàtica i comunicacions", "c": "CFGM Sistemes microinformàtics i xarxes", "g": "1r SMX AC", "a": "20.2", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Instal·lació i manteniment", "c": "CFGM Manteniment electromecànic", "g": "1r MEM", "a": "E14", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Fabricació mecànica", "c": "PFI PTT Auxiliar de manteniment electromecànic", "g": "1r FM05", "a": "E6", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Sanitat", "c": "CFGM Farmàcia i parafarmàcia", "g": "1r FAR BC", "a": "16", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Sanitat", "c": "CFGS Dietètica", "g": "2n DIE", "a": "28", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Educació infantil", "g": "2n EIN", "a": "E11", "k": 0}, {"d": "2026-12-09", "s": "12:30", "e": "13:20", "f": "IFE", "c": "IFE Manteniment instal·lacions esportives", "g": "1r IFE", "a": "29", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Administració i gestió", "c": "CFGM Gestió administrativa", "g": "1r GAD", "a": "32", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Arts gràfiques", "c": "CFGM Preimpressió digital", "g": "1r PRID", "a": "20.5", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Comerç i màrqueting", "c": "CFGS Màrqueting i publicitat", "g": "2n MAP", "a": "35", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Informàtica i comunicacions", "c": "CFGS Administració de sistemes informàtics en xarxa (ciber.)", "g": "2n ASIX", "a": "20.3", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Instal·lació i manteniment", "c": "Curs especialització Fabricació Intel·ligent", "g": "1r FABIN", "a": "Altell-2", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Informàtica i comunicacions", "c": "CFGM Sistemes microinformàtics i xarxes", "g": "1r SMX BC", "a": "20.2", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Instal·lació i manteniment", "c": "CFGM Manteniment electromecànic", "g": "2n MEM", "a": "E14", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Fabricació mecànica", "c": "CFGS Programació de la producció en fabricació mecànica", "g": "2n PPFM", "a": "E16", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGM Cures auxiliars d’infermeria", "g": "CAI C", "a": "27", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGM Emergències sanitàries", "g": "1r ES A", "a": "ES1", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGS Laboratori clínic i biomèdic", "g": "1r LCB", "a": "11", "k": 0}, {"d": "2026-12-09", "s": "13:20", "e": "14:10", "f": "IFE", "c": "IFE Manteniment instal·lacions esportives", "g": "2n IFE", "a": "29", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Administració i gestió", "c": "CFGM Gestió administrativa", "g": "2n GAD", "a": "32", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Arts gràfiques", "c": "CFGM Preimpressió digital", "g": "2n PRID", "a": "20.5", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Comerç i màrqueting", "c": "CFGS Màrqueting i publicitat", "g": "1r MAP", "a": "35", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Electricitat i electrònica", "c": "CFGS Automatització i robòtica industrial", "g": "2n ARI", "a": "E13", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Imatge i so", "c": "CFGS Realització de projectes d’audiovisuals i espectacles", "g": "1r RPAE", "a": "E8", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Informàtica i comunicacions", "c": "CFGS Desenvolupament d’aplicacions multiplataforma", "g": "1r DAM", "a": "21", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Fabricació mecànica", "c": "CFGM Mecanització", "g": "1r MEC", "a": "E15", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Sanitat", "c": "CFGM Farmàcia i parafarmàcia", "g": "2n FAR AC", "a": "17", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "Sanitat", "c": "CFGS Dietètica", "g": "1r DIE", "a": "27", "k": 0}, {"d": "2026-12-09", "s": "15:10", "e": "16:00", "f": "IFE", "c": "IFE Manteniment instal·lacions esportives", "g": "4t IFE", "a": "29", "k": 0}, {"d": "2026-12-09", "s": "16:00", "e": "17:00", "f": "Sanitat", "c": "CFGM Farmàcia i parafarmàcia", "g": "1r FAR AC", "a": "16", "k": 0}, {"d": "2026-12-09", "s": "16:00", "e": "17:00", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Educació infantil", "g": "1r EIN", "a": "E9", "k": 0}, {"d": "2026-12-09", "s": "17:00", "e": "18:00", "f": "Fabricació mecànica", "c": "CFGS Programació de la producció en fabricació mecànica", "g": "1r PPFM", "a": "E16", "k": 0}, {"d": "2026-12-09", "s": "17:00", "e": "18:00", "f": "Sanitat", "c": "CFGM Emergències sanitàries", "g": "2n ES C", "a": "B1", "k": 0}, {"d": "2026-12-16", "s": "11:30", "e": "12:30", "f": "Administració i gestió", "c": "CFGS Assistència a la direcció", "g": "ADI (compleció)", "a": "B1", "k": 1}, {"d": "2026-12-16", "s": "11:30", "e": "12:30", "f": "Serveis socioculturals i a la comunitat", "c": "CFGS Integració social", "g": "INS (compleció)", "a": "B2", "k": 1}, {"d": "2026-12-16", "s": "12:30", "e": "13:20", "f": "Administració i gestió", "c": "CFGS Administració i finances", "g": "AF (compleció)", "a": "31", "k": 1}, {"d": "2026-12-16", "s": "12:30", "e": "13:20", "f": "Arts gràfiques", "c": "CFGS Disseny i edició de publicacions impreses i multimèdia", "g": "DEPIM (compleció)", "a": "20.6", "k": 1}, {"d": "2026-12-16", "s": "12:30", "e": "13:20", "f": "Comerç i màrqueting", "c": "CFGS Màrqueting i publicitat", "g": "MAP (compleció)", "a": "34", "k": 1}, {"d": "2026-12-16", "s": "12:30", "e": "13:20", "f": "Instal·lació i manteniment", "c": "CFGM Manteniment electromecànic", "g": "MEM (compleció)", "a": "E14", "k": 1}, {"d": "2026-12-16", "s": "12:30", "e": "13:20", "f": "Sanitat", "c": "CFGS Laboratori clínic i biomèdic", "g": "LCB (compleció)", "a": "11", "k": 1}, {"d": "2026-12-16", "s": "12:30", "e": "13:20", "f": "Sanitat", "c": "CFGM Emergències sanitàries", "g": "ES (compleció)", "a": "ES1", "k": 1}, {"d": "2026-12-16", "s": "13:20", "e": "14:10", "f": "Administració i gestió", "c": "CFGM Gestió administrativa", "g": "GAD (compleció)", "a": "32", "k": 1}, {"d": "2026-12-16", "s": "13:20", "e": "14:10", "f": "Electricitat i electrònica", "c": "CFGS Automatització i robòtica industrial", "g": "ARI (compleció)", "a": "E13", "k": 1}, {"d": "2026-12-16", "s": "13:20", "e": "14:10", "f": "Electricitat i electrònica", "c": "CFGS Eficiència energètica i energia solar tèrmica", "g": "EE (compleció)", "a": "E12", "k": 1}, {"d": "2026-12-16", "s": "13:20", "e": "14:10", "f": "Sanitat", "c": "CFGM Farmàcia i parafarmàcia", "g": "FAR (compleció)", "a": "17", "k": 1}, {"d": "2026-12-16", "s": "13:20", "e": "14:10", "f": "Serveis socioculturals i a la comunitat", "c": "CFGM Atenció a persones en situació de dependència", "g": "APD (compleció)", "a": "22", "k": 1}];
+const DAYS={
+ "2026-12-02":{wd:"Dimecres",n:2,title:"Dimecres 2 de desembre de 2026",comp:false},
+ "2026-12-09":{wd:"Dimecres",n:9,title:"Dimecres 9 de desembre de 2026",comp:false},
+ "2026-12-16":{wd:"Dimecres",n:16,title:"Dimecres 16 de desembre de 2026",comp:true}};
+const PAL=["#0B7CC1","#00A7B5","#7A5BD6","#E0527A","#3FA34D","#D9622B","#4C6FFF","#8A6D3B","#1E9E8A","#B03FA0","#6B7A8F","#C2410C"];
+const fams=[...new Set(DATA.map(r=>r.f))].sort((a,b)=>a.localeCompare(b,'ca'));
+const fcol=Object.fromEntries(fams.map((f,i)=>[f,PAL[i%PAL.length]]));
+const norm=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[’']/g,"'");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pad=t=>t.padStart(5,'0');
+DATA.forEach(r=>{const dn=DAYS[r.d].n;r.slot=r.s+' – '+r.e;
+  r.txt=norm(['@d'+dn,'desembre','dimecres',r.s,r.e,r.slot,r.f,r.c,r.g,r.a,'aula '+r.a,r.k?'compleció':'avaluació'].join(' | '))});
+DATA.sort((a,b)=>a.d.localeCompare(b.d)||pad(a.s).localeCompare(pad(b.s))||a.f.localeCompare(b.f,'ca')||a.g.localeCompare(b.g,'ca'));
+const $=id=>document.getElementById(id);
+let day='';
+const slots=[...new Set(DATA.map(r=>r.slot))].sort((a,b)=>pad(a).localeCompare(pad(b)));
+const rooms=[...new Set(DATA.map(r=>r.a))].sort((a,b)=>a.localeCompare(b,'ca',{numeric:true}));
+$('fam').innerHTML='<option value="">Totes</option>'+fams.map(f=>`<option>${esc(f)}</option>`).join('');
+$('hour').innerHTML='<option value="">Totes</option>'+slots.map(s=>`<option>${s}</option>`).join('');
+$('room').innerHTML='<option value="">Totes</option>'+rooms.map(s=>`<option>${esc(s)}</option>`).join('');
+$('sug').innerHTML=['compleció','Sanitat','Informàtica','SMX','12:30','Aula 31'].map(s=>`<button type="button">${s}</button>`).join('');
+$('sug').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('q').value=b.textContent;render();$('q').focus()};
+function terms(){return norm($('q').value).replace(/\b(?:dia\s+)?(\d{1,2})\s+de\s+desembre\b/g,' @d$1 ').replace(/\bdia\s+(\d{1,2})\b/g,' @d$1 ').split(/\s+/).filter(t=>t&&t!=='aula'&&t!=='de')}
+function match(r,ign){const t=terms(),f=$('fam').value,h=$('hour').value,a=$('room').value,k=$('typ').value;
+  return (ign||!day||r.d===day)&&(!f||r.f===f)&&(!h||r.slot===h)&&(!a||r.a===a)&&(k===''||String(r.k)===k)&&t.every(x=>r.txt.includes(x))}
+function renderTiles(){
+  const tot=DATA.filter(r=>match(r,true)).length;
+  let h=`<button class="tile all" type="button" data-d="" aria-pressed="${day===''}"><span class="n">Tots</span><span class="t"><b>Tots els dies</b>2, 9 i 16 de desembre</span><span class="c">${tot}</span></button>`;
+  Object.entries(DAYS).forEach(([k,v])=>{const n=DATA.filter(r=>r.d===k&&match(r,true)).length;
+    h+=`<button class="tile${v.comp?' comp':''}" type="button" data-d="${k}" aria-pressed="${day===k}"><span class="n">${v.n}</span><span class="t"><b>${v.comp?'Compleció CF LOE':v.wd}</b>desembre 2026</span><span class="c">${n}</span></button>`});
+  $('tiles').innerHTML=h}
+$('tiles').onclick=e=>{const b=e.target.closest('button');if(!b)return;day=b.dataset.d;render();$('tiles').querySelector(`[data-d="${day}"]`).focus()};
+function hl(text,ts){const h=esc(text);if(!ts.length)return h;const n=norm(text);if(n.length!==text.length)return h;
+  const idx=[];ts.forEach(t=>{let i=n.indexOf(t);while(i>-1){idx.push([i,i+t.length]);i=n.indexOf(t,i+t.length)}});
+  if(!idx.length)return h;idx.sort((a,b)=>a[0]-b[0]);const m=[];
+  idx.forEach(r=>{const l=m[m.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else m.push([...r])});
+  let o='',p=0;m.forEach(([a,b])=>{o+=esc(text.slice(p,a))+'<mark>'+esc(text.slice(a,b))+'</mark>';p=b});return o+esc(text.slice(p))}
+function render(){
+  const ts=terms();
+  ['fam','hour','room','typ'].forEach(i=>$(i).classList.toggle('on',!!$(i).value));
+  $('clr').style.display=$('q').value?'block':'none';
+  renderTiles();
+  const res=DATA.filter(r=>match(r));
+  $('count').innerHTML=res.length?`<b>${res.length}</b> ${res.length===1?'junta trobada':'juntes trobades'}`:'';
+  if(!res.length){$('out').innerHTML='<div class="empty"><b>No hi ha cap junta amb aquests criteris</b>Revisa l’ortografia, treu alguna paraula o neteja els filtres.<br><button type="button" id="r2">Neteja-ho tot</button></div>';$('r2').onclick=reset;return}
+  let html='';
+  [...new Set(res.map(r=>r.d))].forEach(d=>{
+    const rd=res.filter(r=>r.d===d),D=DAYS[d];
+    html+=`<section class="day" aria-label="${D.title}"><div class="dayh${D.comp?' comp':''}"><h2>${D.title}</h2>${D.comp?'<span class="pill">Juntes de compleció CF LOE</span>':''}<span class="num">${rd.length} ${rd.length===1?'junta':'juntes'}</span></div>`;
+    [...new Set(rd.map(r=>r.slot))].forEach(s=>{
+      const rs=rd.filter(r=>r.slot===s),[a,b]=s.split(' – ');
+      html+=`<div class="slot"><div class="time"><div class="a">${a}</div><div class="b">${b}</div></div><div class="cards">`+
+      rs.map(r=>`<article class="card${r.k?' k':''}" style="--fc:${fcol[r.f]}"><div>${r.k?'<span class="tag">Compleció</span>':''}<h3 class="g">${hl(r.g,ts)}</h3><p class="cy">${hl(r.c,ts)}</p><span class="fam">${hl(r.f,ts)}</span></div><div class="plate"><span>Aula</span><b>${hl(r.a,ts)}</b></div></article>`).join('')+'</div></div>'});
+    html+='</section>'});
+  $('out').innerHTML=html}
+function reset(){$('q').value='';['fam','hour','room','typ'].forEach(i=>$(i).value='');day='';render()}
+$('q').oninput=render;['fam','hour','room','typ'].forEach(i=>$(i).onchange=render);
+$('clr').onclick=()=>{$('q').value='';render();$('q').focus()};
+$('reset').onclick=reset;
+$('theme').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=dark?'light':'dark'};
+render();
+</script>
+</body>
+</html>
